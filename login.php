@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
+    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
         header("location: index.php");
         exit;
     }
@@ -12,11 +12,11 @@
     $username_err = $password_err = $login_err = "";
     
     if($_SERVER["REQUEST_METHOD"]== "POST"){
+        
         // check username
-        if(empty(trim($_POST("username")))){
-            $username_err =  "Plase enter username.";
-
-        } else {
+        if(empty(trim($_POST["username"]))){
+            $username_err = "Plase enter username.";
+        } else{
             $username = trim($_POST["username"]);
         }
        //check password
@@ -33,7 +33,7 @@
 
             if($stmt = mysqli_prepare($mysqli, $sql)){
 
-                mysqli_stmt_bind_param($stmt,"s", $param_username);
+                mysqli_stmt_bind_param($stmt, "s" , $param_username);
     
                 $param_username = $username;
     
@@ -91,7 +91,7 @@
         
         <?php
         if(!empty($login_err)){
-            echo ' <div class="alert alert-danger">'. $login_err .'</div>';
+            echo '<div class="alert alert-danger">' . $login_err . '</div>';
         
         }
         ?>
@@ -115,7 +115,6 @@
 
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Login">
-            <input type="reset" class="btn btn-secondary ml-2" value="Reset">
         </div>
         <p>Don't have account? <a href="register.php"> Sign up now</a>.</p>
         
@@ -124,3 +123,4 @@
     
    </body>
    </html>
+   

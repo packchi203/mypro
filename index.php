@@ -19,6 +19,8 @@
         
     </style>
     <a href="create.php">Create Studient</a>
+    <br>
+    <a href="search.php">Search Studient</a>
     <table width='80%'; border=1>
         <tr>
             <th>Name</th>

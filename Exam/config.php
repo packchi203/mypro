@@ -2,7 +2,7 @@
 $dataHost = 'localhost';
 $dataUserName = 'root';
 $dataPassWord = '';
-$dataName = 'mypro_crud';
+$dataName = 'exam_studien';
 
 $mysqli = mysqli_connect($dataHost,$dataUserName,$dataPassWord,$dataName);
 

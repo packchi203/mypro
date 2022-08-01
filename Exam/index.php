@@ -1,13 +1,32 @@
-<!DOCTYPE html>
-<html lang ="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Student Lives search</title>
+
+    <?php 
+      include_once("config.php");
+      $result = mysqli_query($mysqli,"SELECT * FROM tbl_studien ORDER BY id DESC");
+    ?>
+
+
+    <html>
+   <body>
+    
     <style>
-        body{
-            font-family: Arial, sans-serif;
+        td{
+            justify-content: center;
+            text-align: center;
+            
         }
-        /* formatting search box */
+        td a{
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .row{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .container{
+            
+            margin: auto;
+        }
         .search-box{
           width: 300px;
           position: relative;
@@ -41,8 +60,14 @@
         .result p:hover{
             background: #f2f2f2;
         }
+        .left{
+            width: 25%;
+        }
+        .right{
+            width: 75%;
+        }
     </style>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+ <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
         $(document).ready(function(){
             $('.search-box input[type="text"]').on("keyup input", function(){
@@ -67,13 +92,39 @@
             })
         })
     </script>
-</head>
-<body>
-    <div class="search-box">
-         <label for="search">Search</label>
-         <input type="text" autocomplete="off" id="search" placeholder="Search student..."/>
-         <div class="result"></div>
-    </div>
-</body>
+    
+        </div>
 
-</html>
+
+       <div class="">
+       <a style="color: black;" href="create.php">Create Studient</a>
+        <br>
+        <br>
+      
+        <table width='95%'; border=1>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Address</th> 
+                <th>Telephone</th>
+                <th>Option</th>
+            </tr>
+            <?php
+            
+        while($stu_data =  mysqli_fetch_array($result)){
+            echo '<tr>';
+            echo '<td>'. $stu_data['name'].'</td>';
+            echo '<td>'. $stu_data['age'].'</td>';
+            echo '<td>'. $stu_data['address'].'</td>';
+            echo '<td>'. $stu_data['telephone'].'</td>';
+            echo "<td> <a href='edit.php?id=$stu_data[id]'>Edit</a> |
+            <a href='delete.php?id=$stu_data[id]'>Delete</a> </td>";
+            echo '</tr>';
+        }
+        ?>
+       </div>
+  </div>
+
+    </table>
+   </body>
+    </html>

@@ -2,15 +2,16 @@
     //kiem tra from co submit (add)
     if(isset($_POST['Submit'])){
         $name = $_POST['name'];
-        $email = $_POST['email'];
-        $mobile = $_POST['mobile'];
+        $age = $_POST['age'];
+        $address = $_POST['address'];
+        $telephone = $_POST['telephone'];
 
         //load conection
         include_once("config.php");
 
      //them ban ghi moi
-        $result = mysqli_query($mysqli,"INSERT INTO Student (name,email,mobile)
-        VALUES('$name','$email','$mobile')");
+        $result = mysqli_query($mysqli,"INSERT INTO tbl_studien (name,age,address,telephone)
+        VALUES('$name','$age','$address','$telephone')");
     //hien thi khi cap nhat xong
     echo "User added successfully";
     }
@@ -29,12 +30,17 @@
                 <td><input type="text" name="name" ></td>
             </tr>
             <tr>
-                <td>Email</td>
-                <td><input type="text" name="email" ></td>
+                <td>Age</td>
+                <td><input type="text" name="age" ></td>
             </tr>
             <tr>
-                <td>Mobile</td>
-                <td><input type="text" name="mobile"></td>
+                <td>Address</td>
+                <td><input type="text" name="address"></td>
+            </tr>
+            
+            <tr>
+                <td>Telephone</td>
+                <td><input type="text" name="telephone"></td>
             </tr>
             <tr>
                 <td><input type="submit" name="Submit" value="Add"></td>

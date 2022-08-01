@@ -43,7 +43,16 @@
                 <td><input type="text" name="telephone"></td>
             </tr>
             <tr>
-                <td><input type="submit" name="Submit" value="Add"></td>
+             <td><br><button  type="submit" name="Submit" value="Add">Add Studien</button></td>
+                <style> form table tr td button {
+                    margin-left: 30px;
+                    width: 100px;
+                    height: 30px;
+                    color: white;
+                    background-color: black;
+                    border: none;
+                    border-radius: 3px;
+                } </style>
             </tr>
         </table>
         </form>

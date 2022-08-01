@@ -66,6 +66,7 @@
         .right{
             width: 75%;
         }
+
     </style>
  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
@@ -97,7 +98,7 @@
 
 
        <div class="">
-       <a style="color: black;" href="create.php">Create Studient</a>
+       <a style="color: black;" href="create.php">Create Studien</a>
         <br>
         <br>
       

@@ -56,7 +56,16 @@
             </tr>
             <tr>
                 <td><input type="hidden" name="id" value=<?php echo $_GET['id'];?>></td>
-                <td><input type="submit" name="update" value="Update"></td>
+                <td><br><button type="submit" name="update" value="Update">Update</button></td>
+                <style> form table tr td button {
+                 
+                    width: 100px;
+                    height: 30px;
+                    color: white;
+                    background-color: black;
+                    border: none;
+                    border-radius: 3px;
+                } </style>
             </tr>
         </table>
         </form>
